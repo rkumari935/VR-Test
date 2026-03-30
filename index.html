@@ -59,12 +59,16 @@
   </a-entity>
 
   <!-- Saturn Orbit -->
-  <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 16000">
-    <a-sphere radius="0.6" src="#saturnTexture" shader="flat"
-              animation="property: rotation; to: 0 360 0; loop: true; dur: 11000"></a-sphere>
-    <a-ring radius-inner="0.7" radius-outer="1.2" src="#saturnRing" rotation="-90 0 0"
-            animation="property: rotation; to: 0 0 360; loop: true; dur: 15000"></a-ring>
-  </a-entity>
+<a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 16000">
+  <!-- Saturn sphere positioned 9 units away from Sun -->
+  <a-sphere position="9 0 0" radius="0.6" src="#saturnTexture" shader="flat"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 11000"></a-sphere>
+
+  <!-- Saturn ring positioned at the same place as Saturn -->
+  <a-ring position="9 0 0" radius-inner="0.7" radius-outer="1.2" src="#saturnRing"
+          rotation="-90 0 0"
+          animation="property: rotation; to: 0 0 360; loop: true; dur: 15000"></a-ring>
+</a-entity>
 
   <!-- Background (Outer Space) -->
   <a-sky src="#spaceBackground"></a-sky>
