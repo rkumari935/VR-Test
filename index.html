@@ -8,20 +8,22 @@
 <body>
 <a-scene>
 
-  <!-- Assets (Textures) -->
+  <!-- Assets (Real Textures) -->
   <a-assets>
-    <img id="sunTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-    <img id="planetTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+    <img id="sunTexture" src="https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638882786/EducationHub/photos/sun-blasts-a-m66-flare.jpg">
+    <img id="earthTexture" src="https://thumbs.dreamstime.com/b/realistic-earth-high-quality-render-planet-isolated-black-background-40044176.jpg">
+    <img id="marsTexture" src="https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg">
+    <img id="jupiterTexture" src="https://cdn.mos.cms.futurecdn.net/pR9pCBjB7tcodWJow8XVGU.jpg">
   </a-assets>
 
   <!-- Camera with WASD controls -->
-  <a-entity position="0 2 10">
+  <a-entity position="0 2 15">
     <a-camera wasd-controls look-controls></a-camera>
   </a-entity>
 
-  <!-- Light -->
-  <a-light type="point" position="0 0 0" intensity="2"></a-light>
-  <a-light type="ambient" intensity="0.5"></a-light>
+  <!-- Lights -->
+  <a-light type="point" position="0 0 0" intensity="3"></a-light>
+  <a-light type="ambient" intensity="1"></a-light>
 
   <!-- Sun -->
   <a-sphere position="0 0 0" radius="1.5"
@@ -29,25 +31,19 @@
             animation="property: material.color; to: red; dir: alternate; loop: true; dur: 2000">
   </a-sphere>
 
-  <!-- Planet 1 -->
-  <a-entity rotation="0 0 0"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
-    <a-sphere position="3 0 0" radius="0.4" src="#planetTexture"></a-sphere>
+  <!-- Earth -->
+  <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+    <a-sphere position="3 0 0" radius="0.4" src="#earthTexture"></a-sphere>
   </a-entity>
 
-  <!-- Planet 2 -->
+  <!-- Mars -->
   <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 7000">
-    <a-sphere position="5 0 0" radius="0.5" src="#planetTexture"></a-sphere>
+    <a-sphere position="5 0 0" radius="0.35" src="#marsTexture"></a-sphere>
   </a-entity>
 
-  <!-- Planet 3 -->
+  <!-- Jupiter -->
   <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 9000">
-    <a-sphere position="7 0 0" radius="0.6" src="#planetTexture"></a-sphere>
-  </a-entity>
-
-  <!-- Planet 4 -->
-  <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 11000">
-    <a-sphere position="9 0 0" radius="0.7" src="#planetTexture"></a-sphere>
+    <a-sphere position="7 0 0" radius="0.7" src="#jupiterTexture"></a-sphere>
   </a-entity>
 
   <!-- Background (stars) -->
