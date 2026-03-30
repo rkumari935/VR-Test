@@ -8,7 +8,7 @@
 <body>
 <a-scene>
 
-  <!-- Assets (High-quality planet textures + Saturn rings + background) -->
+  <!-- Assets -->
   <a-assets>
     <img id="sunTexture" src="sun.jpg">
     <img id="venusTexture" src="venus.jpg">
@@ -20,49 +20,48 @@
     <img id="spaceBackground" src="https://t4.ftcdn.net/jpg/00/81/55/69/360_F_81556974_8sF8cKszJaRfBGd5sDt1RXE2QbzDtQqs.jpg">
   </a-assets>
 
-  <!-- Camera with WASD controls -->
+  <!-- Camera -->
   <a-entity position="0 2 20">
     <a-camera wasd-controls look-controls></a-camera>
   </a-entity>
 
   <!-- Lights -->
-  <a-light type="ambient" intensity="1.2"></a-light>
-  <a-light type="point" position="0 0 0" intensity="4"></a-light>
+  <a-light type="ambient" intensity="0.8"></a-light>
+  <a-light type="point" position="0 0 0" intensity="3"></a-light>
 
   <!-- Sun -->
-  <a-sphere position="0 0 0" radius="1.5"
-            src="#sunTexture"
+  <a-sphere position="0 0 0" radius="1.5" src="#sunTexture" shader="flat"
             animation="property: material.color; to: red; dir: alternate; loop: true; dur: 2000">
   </a-sphere>
 
   <!-- Venus -->
-  <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
-    <a-sphere position="2 0 0" radius="0.35" src="#venusTexture"></a-sphere>
-  </a-entity>
+  <a-sphere position="2 0 0" radius="0.35" src="#venusTexture" shader="flat"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 4000"></a-sphere>
 
   <!-- Earth -->
-  <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
-    <a-sphere position="3 0 0" radius="0.4" src="#earthTexture"></a-sphere>
-  </a-entity>
+  <a-sphere position="3 0 0" radius="0.4" src="#earthTexture" shader="flat"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-sphere>
 
   <!-- Mars -->
-  <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 7000">
-    <a-sphere position="5 0 0" radius="0.35" src="#marsTexture"></a-sphere>
-  </a-entity>
+  <a-sphere position="5 0 0" radius="0.35" src="#marsTexture" shader="flat"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"></a-sphere>
 
   <!-- Jupiter -->
-  <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 9000">
-    <a-sphere position="7 0 0" radius="0.7" src="#jupiterTexture"></a-sphere>
+  <a-sphere position="7 0 0" radius="0.7" src="#jupiterTexture" shader="flat"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 9000"></a-sphere>
+
+  <!-- Saturn and Rings -->
+  <a-entity position="9 0 0">
+    <!-- Saturn planet -->
+    <a-sphere radius="0.6" src="#saturnTexture" shader="flat"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 11000"></a-sphere>
+    <!-- Saturn rings -->
+    <a-ring radius-inner="0.7" radius-outer="1.2" src="#saturnRing" rotation="-90 0 0"
+            animation="property: rotation; to: 0 0 360; loop: true; dur: 15000"></a-ring>
   </a-entity>
 
-  <!-- Saturn with Rings -->
-  <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 11000" position="9 0 0">
-    <a-sphere radius="0.6" src="#saturnTexture"></a-sphere>
-    <a-ring radius-inner="0.7" radius-outer="1.2" src="#saturnRing" rotation="-90 0 0"></a-ring>
-  </a-entity>
-
-  <!-- Background (Outer Space) -->
-  <a-sky src="#spaceBackground" rotation="0 -90 0"></a-sky>
+  <!-- Background -->
+  <a-sky src="#spaceBackground"></a-sky>
 
 </a-scene>
 </body>
