@@ -8,22 +8,24 @@
 <body>
 <a-scene>
 
-  <!-- Assets (Real Textures) -->
+  <!-- Assets (Real Textures + Saturn + Space Background) -->
   <a-assets>
     <img id="sunTexture" src="https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638882786/EducationHub/photos/sun-blasts-a-m66-flare.jpg">
     <img id="earthTexture" src="https://thumbs.dreamstime.com/b/realistic-earth-high-quality-render-planet-isolated-black-background-40044176.jpg">
     <img id="marsTexture" src="https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg">
     <img id="jupiterTexture" src="https://cdn.mos.cms.futurecdn.net/pR9pCBjB7tcodWJow8XVGU.jpg">
+    <img id="saturnTexture" src="https://i.natgeofe.com/k/dd0e8ff2-4137-47df-9b88-80acf9e43859/saturn_3x2.jpg">
+    <img id="spaceBackground" src="https://t4.ftcdn.net/jpg/00/81/55/69/360_F_81556974_8sF8cKszJaRfBGd5sDt1RXE2QbzDtQqs.jpg">
   </a-assets>
 
   <!-- Camera with WASD controls -->
-  <a-entity position="0 2 15">
+  <a-entity position="0 2 20">
     <a-camera wasd-controls look-controls></a-camera>
   </a-entity>
 
   <!-- Lights -->
-  <a-light type="point" position="0 0 0" intensity="3"></a-light>
-  <a-light type="ambient" intensity="1"></a-light>
+  <a-light type="ambient" intensity="1.2"></a-light>
+  <a-light type="point" position="0 0 0" intensity="4"></a-light>
 
   <!-- Sun -->
   <a-sphere position="0 0 0" radius="1.5"
@@ -46,8 +48,13 @@
     <a-sphere position="7 0 0" radius="0.7" src="#jupiterTexture"></a-sphere>
   </a-entity>
 
-  <!-- Background (stars) -->
-  <a-sky color="black"></a-sky>
+  <!-- Saturn -->
+  <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 11000">
+    <a-sphere position="9 0 0" radius="0.6" src="#saturnTexture"></a-sphere>
+  </a-entity>
+
+  <!-- Background -->
+  <a-sky src="#spaceBackground" rotation="0 -90 0"></a-sky>
 
 </a-scene>
 </body>
