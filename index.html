@@ -29,14 +29,9 @@
   <a-light type="ambient" intensity="0.8"></a-light>
   <a-light type="point" position="0 0 0" intensity="3"></a-light>
 
-  <!-- Sun with color-changing animation -->
-  <a-sphere position="0 0 0" radius="1.5" src="#sunTexture" shader="flat">
-    <a-animation attribute="material.color"
-                 dur="6000"
-                 repeat="indefinite"
-                 direction="alternate"
-                 values="yellow; orange; red; white; yellow">
-    </a-animation>
+  <!-- Sun with pulsing color -->
+  <a-sphere position="0 0 0" radius="1.5" src="#sunTexture" shader="standard"
+            animation__color="property: material.color; from: #8B0000; to: #FFFFFF; dir: alternate; loop: true; dur: 3000">
   </a-sphere>
 
   <!-- Venus orbit -->
@@ -65,7 +60,7 @@
 
   <!-- Saturn orbit -->
   <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 22000">
-    <!-- Saturn planet -->
+    <!-- Saturn with rotation -->
     <a-sphere position="9 0 0" radius="0.6" src="#saturnTexture" shader="flat"
               animation="property: rotation; to: 0 360 0; loop: true; dur: 11000"></a-sphere>
     <!-- Saturn ring stays still -->
