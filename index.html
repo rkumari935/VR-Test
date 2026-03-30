@@ -34,33 +34,39 @@
             animation="property: material.color; to: red; dir: alternate; loop: true; dur: 2000">
   </a-sphere>
 
-  <!-- Venus -->
-  <a-sphere position="2 0 0" radius="0.35" src="#venusTexture" shader="flat"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 4000"></a-sphere>
+  <!-- Venus Orbit -->
+  <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
+    <a-sphere position="2 0 0" radius="0.35" src="#venusTexture" shader="flat"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 4000"></a-sphere>
+  </a-entity>
 
-  <!-- Earth -->
-  <a-sphere position="3 0 0" radius="0.4" src="#earthTexture" shader="flat"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-sphere>
+  <!-- Earth Orbit -->
+  <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+    <a-sphere position="3 0 0" radius="0.4" src="#earthTexture" shader="flat"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-sphere>
+  </a-entity>
 
-  <!-- Mars -->
-  <a-sphere position="5 0 0" radius="0.35" src="#marsTexture" shader="flat"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"></a-sphere>
+  <!-- Mars Orbit -->
+  <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 12000">
+    <a-sphere position="5 0 0" radius="0.35" src="#marsTexture" shader="flat"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"></a-sphere>
+  </a-entity>
 
-  <!-- Jupiter -->
-  <a-sphere position="7 0 0" radius="0.7" src="#jupiterTexture" shader="flat"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 9000"></a-sphere>
+  <!-- Jupiter Orbit -->
+  <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 14000">
+    <a-sphere position="7 0 0" radius="0.7" src="#jupiterTexture" shader="flat"
+              animation="property: rotation; to: 0 360 0; loop: true; dur: 9000"></a-sphere>
+  </a-entity>
 
-  <!-- Saturn and Rings -->
-  <a-entity position="9 0 0">
-    <!-- Saturn planet -->
+  <!-- Saturn Orbit -->
+  <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 16000">
     <a-sphere radius="0.6" src="#saturnTexture" shader="flat"
               animation="property: rotation; to: 0 360 0; loop: true; dur: 11000"></a-sphere>
-    <!-- Saturn rings -->
     <a-ring radius-inner="0.7" radius-outer="1.2" src="#saturnRing" rotation="-90 0 0"
             animation="property: rotation; to: 0 0 360; loop: true; dur: 15000"></a-ring>
   </a-entity>
 
-  <!-- Background -->
+  <!-- Background (Outer Space) -->
   <a-sky src="#spaceBackground"></a-sky>
 
 </a-scene>
