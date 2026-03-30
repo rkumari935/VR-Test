@@ -21,7 +21,7 @@
   </a-assets>
 
   <!-- Camera -->
-  <a-entity position="0 2 20">
+  <a-entity position="0 2 22">
     <a-camera wasd-controls look-controls></a-camera>
   </a-entity>
 
@@ -29,42 +29,43 @@
   <a-light type="ambient" intensity="0.8"></a-light>
   <a-light type="point" position="0 0 0" intensity="3"></a-light>
 
-  <!-- Sun with pulsing color -->
+  <!-- Sun (slow color change) -->
   <a-sphere position="0 0 0" radius="1.5" src="#sunTexture" shader="standard"
-            animation__color="property: material.color; from: #8B0000; to: #FFFFFF; dir: alternate; loop: true; dur: 3000">
+            animation="property: material.color; from: #8B0000; to: #FFFFFF; dir: alternate; loop: true; dur: 8000">
   </a-sphere>
 
-  <!-- Venus orbit -->
+  <!-- Venus -->
   <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
-    <a-sphere position="2 0 0" radius="0.35" src="#venusTexture" shader="flat"
+    <a-sphere position="2.5 0 0" radius="0.35" src="#venusTexture" shader="flat"
               animation="property: rotation; to: 0 360 0; loop: true; dur: 4000"></a-sphere>
   </a-entity>
 
-  <!-- Earth orbit -->
+  <!-- Earth -->
   <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
-    <a-sphere position="3 0 0" radius="0.4" src="#earthTexture" shader="flat"
+    <a-sphere position="4 0 0" radius="0.4" src="#earthTexture" shader="flat"
               animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-sphere>
   </a-entity>
 
-  <!-- Mars orbit -->
+  <!-- Mars -->
   <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 14000">
-    <a-sphere position="5 0 0" radius="0.35" src="#marsTexture" shader="flat"
+    <a-sphere position="6 0 0" radius="0.35" src="#marsTexture" shader="flat"
               animation="property: rotation; to: 0 360 0; loop: true; dur: 7000"></a-sphere>
   </a-entity>
 
-  <!-- Jupiter orbit -->
+  <!-- Jupiter -->
   <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 18000">
-    <a-sphere position="7 0 0" radius="0.7" src="#jupiterTexture" shader="flat"
+    <a-sphere position="8 0 0" radius="0.7" src="#jupiterTexture" shader="flat"
               animation="property: rotation; to: 0 360 0; loop: true; dur: 9000"></a-sphere>
   </a-entity>
 
-  <!-- Saturn orbit -->
+  <!-- Saturn -->
   <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 22000">
-    <!-- Saturn with rotation -->
-    <a-sphere position="9 0 0" radius="0.6" src="#saturnTexture" shader="flat"
+    <a-sphere position="11 0 0" radius="0.6" src="#saturnTexture" shader="flat"
               animation="property: rotation; to: 0 360 0; loop: true; dur: 11000"></a-sphere>
-    <!-- Saturn ring stays still -->
-    <a-ring position="9 0 0" radius-inner="0.7" radius-outer="1.2" src="#saturnRing" rotation="-90 0 0"></a-ring>
+
+    <!-- Ring stays aligned with Saturn -->
+    <a-ring position="11 0 0" radius-inner="0.7" radius-outer="1.2"
+            src="#saturnRing" rotation="-90 0 0"></a-ring>
   </a-entity>
 
   <!-- Background -->
