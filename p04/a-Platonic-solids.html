@@ -1,16 +1,33 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <title>Platonic Solids Rotation</title>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script> 
   </head>
   <body>
-	
     <a-scene>
-      <a-box position="-4.0 1 -5" rotation="0 0 0" color="green"></a-box>
-      <a-entity position="-2.0 1 -5"  geometry="primitive: tetrahedron; radius: 1"></a-entity>
-      <a-entity position="0 1 -5" geometry="primitive: dodecahedron; radius: 1"></a-entity>
-      <a-entity position="2.0 1 -5" geometry="primitive: octahedron; radius: 1"></a-entity>
-      <a-entity position="4.0 1 -5" geometry="primitive: icosahedron"></a-entity>
+      
+      <!-- Cube -->
+      <a-box position="-4 1 -5" rotation="0 0 0" color="green"
+             animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-box>
+      
+      <!-- Tetrahedron -->
+      <a-entity position="-2 1 -5" geometry="primitive: tetrahedron; radius: 1"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-entity>
+      
+      <!-- Dodecahedron -->
+      <a-entity position="0 1 -5" geometry="primitive: dodecahedron; radius: 1"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-entity>
+      
+      <!-- Octahedron -->
+      <a-entity position="2 1 -5" geometry="primitive: octahedron; radius: 1"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-entity>
+      
+      <!-- Icosahedron -->
+      <a-entity position="4 1 -5" geometry="primitive: icosahedron"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 3000"></a-entity>
+      
     </a-scene>
-
   </body>
 </html>
