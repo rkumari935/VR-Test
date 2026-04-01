@@ -3,15 +3,24 @@
   <head>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
     <script>
-      // Component to toggle color on click
+      // Component to toggle color independently
       AFRAME.registerComponent('my-color-toggle', {
         init: function() {
-          let el = this.el;
+          const el = this.el;
           this.toggleColor = function() {
-            let current = el.getAttribute('color');
-            el.setAttribute('color', current === 'orange' ? 'yellow' : 'orange');
+            const current = el.getAttribute('color');
+            // Change color independently per cube
+            if (current === 'blue') {
+              el.setAttribute('color', 'orange');
+            } else if (current === 'green') {
+              el.setAttribute('color', 'purple');
+            } else if (current === 'orange') {
+              el.setAttribute('color', 'blue');
+            } else if (current === 'purple') {
+              el.setAttribute('color', 'green');
+            }
           };
-          this.el.addEventListener('click', this.toggleColor);
+          el.addEventListener('click', this.toggleColor);
         },
         remove: function() {
           this.el.removeEventListener('click', this.toggleColor);
@@ -21,14 +30,16 @@
   </head>
   <body>
     <a-scene cursor="rayOrigin: mouse;" raycaster="objects: .rayclick;">
-      <!-- Left cube: stays red, no color change -->
+      
+      <!-- Left cube: stays red -->
       <a-box id="one" position="-2 0 -7" color="red" class="rayclick"></a-box>
-
-      <!-- Middle cube: changes color on click -->
+      
+      <!-- Middle cube: changes from blue to orange -->
       <a-box id="two" position="0 0 -7" color="blue" class="rayclick" my-color-toggle></a-box>
-
-      <!-- Right cube: changes color on click -->
+      
+      <!-- Right cube: changes from green to purple -->
       <a-box id="three" position="2 0 -7" color="green" class="rayclick" my-color-toggle></a-box>
+      
     </a-scene>
   </body>
 </html>
