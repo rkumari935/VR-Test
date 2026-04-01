@@ -1,41 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-     <script src="https://aframe.io/releases/1.7.1/aframe.min.js" crossorigin="anonymous"></script>
-     
-     
-  </head>
-  <body>
-    <script>
-     document.addEventListener('DOMContentLoaded', () => {
-        const isLocal = ['localhost','127.0.0.1','[::1]'].includes(location.hostname);
-        const src = isLocal
-          ? 'http://localhost:8000/p01/IMAGES/Moving_Forest_1050_700.webp'
-          : './IMAGES/Moving_Forest_1050_700.webp';
+<head>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+</head>
 
-        const img = document.getElementById('forest');
-        img.setAttribute('src', src);        // set it
+<body>
 
-        // once assets are ready, use it
-        document.querySelector('a-assets').addEventListener('loaded', () => {
-          document.getElementById('mySky')
-            .setAttribute('material', 'src: #forest');
-        });
-      });
-      </script>
-    <a-scene>
-      <a-assets>
-        <img id="forest"  crossorigin="anonymous"> <!-- src="http://localhost:8000/p01/IMAGES/Moving_Forest_1050_700.webp"-->
-      </a-assets>
-      <a-sky id="mySky"
-        src="#forest"	position="-2.5  0 -1.5"
-      ></a-sky>
-      <a-text
-        font="kelsonsans"
-        value="RUPAM!"
-        width="6"
-        position="-2.5  1.5 -2.5"  <!-- Position ! -->
-      ></a-text>
-    </a-scene>
-  </body>
+  <a-scene>
+
+    <!-- Assets -->
+    <a-assets>
+      <!-- Using the image you provided -->
+      <img id="forestSky" src="https://as2.ftcdn.net/jpg/00/78/89/41/220_F_78894153_6vehwXxxFzCbIyFjmZdrtoqxk219gWnd.jpg" crossorigin="anonymous">
+    </a-assets>
+
+    <!-- Background Sky -->
+    <a-sky src="#forestSky"></a-sky>
+
+    <!-- Text in the scene -->
+    <a-text
+      font="kelsonsans"
+      color="#FFFFFF"
+      value="Welcome to the Forest VR!"
+      width="6"
+      position="0 2 -5"
+      align="center"
+    ></a-text>
+
+  </a-scene>
+
+</body>
 </html>
