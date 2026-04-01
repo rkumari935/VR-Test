@@ -1,51 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-  </head>
+<head>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+</head>
 
-  <body>
+<body>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const isLocal = ['localhost','127.0.0.1','[::1]'].includes(location.hostname);
-        const src = isLocal
-          ? 'http://localhost:8000/p01/IMAGES/heic2007a.jpg'
-          : './IMAGES/heic2007a.jpg';
+  <a-scene> 
 
-        const img = document.getElementById('nebula');
-        img.setAttribute('src', src);
+    <!-- Assets -->
+    <a-assets>
+      <!-- Using the provided nebula image from Wikipedia -->
+      <img id="nebula" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Trifid_Nebula_by_Deddy_Dayag.jpg/960px-Trifid_Nebula_by_Deddy_Dayag.jpg" crossorigin="anonymous">
+    </a-assets>
 
-        document.querySelector('a-assets').addEventListener('loaded', () => {
-          document.getElementById('mySky')
-            .setAttribute('material', 'src: #nebula');
-        });
-      });
-    </script>
+    <!-- Background Sky -->
+    <a-sky id="mySky"
+           src="#nebula"
+           position="-2.5 0 -1.5">
+    </a-sky>
 
-    <a-scene> 
+    <!-- Updated Text -->
+    <a-text
+      font="kelsonsans"
+      color="#FFFFFF"
+      value="Welcome to my VR Space!"
+      width="6"
+      position="1 1 -4">
+    </a-text>
 
-      <!-- Assets -->
-      <a-assets>
-        <img id="nebula" crossorigin="anonymous">
-      </a-assets>
+  </a-scene>
 
-      <!-- Sky Background -->
-      <a-sky id="mySky"
-             src="#nebula"
-             position="-2.5 0 -1.5">
-      </a-sky>
-
-      <!-- Updated Text -->
-      <a-text
-        font="kelsonsans"
-        color="#FFFFFF"
-        value="Welcome to my VR Space!"
-        width="6"
-        position="1 1 -4">
-      </a-text>
-
-    </a-scene>
-
-  </body>
+</body>
 </html>
