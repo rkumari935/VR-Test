@@ -2,9 +2,8 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
-  </head>
-  <body>
     <script>
+      // Component to toggle color on click
       AFRAME.registerComponent('my-color-toggle', {
         init: function() {
           let el = this.el;
@@ -19,10 +18,16 @@
         }
       });
     </script>
-
+  </head>
+  <body>
     <a-scene cursor="rayOrigin: mouse;" raycaster="objects: .rayclick;">
-      <a-box id="one" position="-2 0 -7" color="red" class="rayclick" my-color-toggle></a-box>
+      <!-- Left cube: stays red, no color change -->
+      <a-box id="one" position="-2 0 -7" color="red" class="rayclick"></a-box>
+
+      <!-- Middle cube: changes color on click -->
       <a-box id="two" position="0 0 -7" color="blue" class="rayclick" my-color-toggle></a-box>
+
+      <!-- Right cube: changes color on click -->
       <a-box id="three" position="2 0 -7" color="green" class="rayclick" my-color-toggle></a-box>
     </a-scene>
   </body>
